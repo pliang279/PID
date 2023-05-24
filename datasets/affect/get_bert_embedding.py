@@ -166,13 +166,13 @@ def bert_version_data(data, raw_path, keys, max_padding=50, bert_max_len=None):
 
 if __name__ == '__main__':
 
-    with open('/home/pliang/multibench/affect/sarcasm.pkl', "rb") as f:
+    with open('multibench/affect/sarcasm.pkl', "rb") as f:
         alldata = pickle.load(f)
 
     train_keys = list(alldata['train']['id'])
     print(alldata['train']['vision'].shape)
 
-    raw_path = '/home/pliang/multibench/affect/sarcasm_raw_text.pkl'
+    raw_path = 'multibench/affect/sarcasm_raw_text.pkl'
 
     new_train_data = bert_version_data(alldata['train'], raw_path, train_keys)
 

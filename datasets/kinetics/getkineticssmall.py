@@ -68,7 +68,7 @@ def getdata(datalist, splitsize=50):
         splitsize (int, optional): _description_. Defaults to 50.
     """
     catacount = 0
-    trainhome = '/home/pliang/yiwei/kinetics/ActivityNet/Crawler/Kinetics/test_data/'
+    trainhome = 'kinetics/ActivityNet/Crawler/Kinetics/test_data/'
     zemp_dir = trainhome+'zemp/'
     if not os.path.exists(zemp_dir):
         os.makedirs(zemp_dir)
@@ -82,7 +82,7 @@ def getdata(datalist, splitsize=50):
                           files[i*splitsize+j]+' '+zemp_dir)
                 # os.system('mv '+trainhome+category+'/'+files[i*splitsize+j]+' '+trainhome+'zemp/')
             # a=getkinetics(trainhome,trainhome,['zemp'],150,catacount,2,(224,224))
-            a = getkinetics(trainhome, '/home/pliang/yiwei/kinetics/ActivityNet/Crawler/Kinetics/temp', [
+            a = getkinetics(trainhome, 'kinetics/ActivityNet/Crawler/Kinetics/temp', [
                             'zemp'], 150, catacount, 2, (224, 224))
             exit()
             torch.save(a, '/data/yiwei/kinetics_small/test/' +

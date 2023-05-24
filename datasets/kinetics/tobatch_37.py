@@ -7,7 +7,7 @@ import os
 from tqdm import tqdm
 
 
-p = '/home/pliang/yiwei/kinetics/ActivityNet/Crawler/Kinetics/test_data/archery/002VmnaNvh4_000003_000013.mp4'
+p = 'kinetics/ActivityNet/Crawler/Kinetics/test_data/archery/002VmnaNvh4_000003_000013.mp4'
 sr = 44100
 audio_transform = torchaudio.transforms.MelSpectrogram(
     sample_rate=sr, n_mels=40)

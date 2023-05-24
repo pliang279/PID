@@ -96,7 +96,7 @@ class VGGClassifier(object):
         with open(model_path, 'rb') as f:
             self.model.set_parameter_values(load_parameters(f))
 
-        with open('/home/pliang/multibench/MultiBench/datasets/imdb/synset_words.txt') as f:
+        with open('multibench/MultiBench/datasets/imdb/synset_words.txt') as f:
             self.classes = numpy.array(f.read().splitlines())
 
         self.predict = cg.get_theano_function()
