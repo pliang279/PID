@@ -15,9 +15,9 @@ import argparse
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--train-data", nargs='+', default="/usr0/home/yuncheng/MultiBench/synthetic/DATA_mix.pickle", type=str, help="input path of synthetic training datasets")
-parser.add_argument("--test-data", default="/usr0/home/yuncheng/MultiBench/synthetic/DATA_mix.pickle", type=str, help="input path of synthetic test datasets")
-parser.add_argument("--test-cluster", default="/usr0/home/yuncheng/MultiBench/synthetic/DATA_mix_cluster.pickle", type=str, help="preprocessed cluster version of the test dataset")
+parser.add_argument("--train-data", nargs='+', default="DATA_mix.pickle", type=str, help="input path of synthetic training datasets")
+parser.add_argument("--test-data", default="DATA_mix.pickle", type=str, help="input path of synthetic test datasets")
+parser.add_argument("--test-cluster", default="DATA_mix_cluster.pickle", type=str, help="preprocessed cluster version of the test dataset")
 parser.add_argument("--keys", nargs='+', default=['0', '1','label'], type=str, help="keys to access data of each modality and label, assuming dataset is structured as a dict")
 parser.add_argument("--modalities", nargs='+', default=[1,1], type=int, help="specify the index of modalities in keys")
 parser.add_argument("--bs", default=128, type=int)

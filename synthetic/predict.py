@@ -3,7 +3,8 @@ import sys
 import os
 import pickle
 import torch
-sys.path.append('/usr0/home/yuncheng/MultiBench/')
+sys.path.append(os.getcwd())
+sys.path.append(os.path.dirname(os.path.dirname(os.getcwd())))
 from supervised_learning import test
 from ensemble import test as test_ensemble
 from get_data import get_dataloader
@@ -12,7 +13,7 @@ from rus import *
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-saved_dir = '/usr0/home/yuncheng/MultiBench/synthetic/experiments2/'
+saved_dir = 'MultiBench/synthetic/experiments2/'
 results_path = saved_dir + 'results.pickle'
 if os.path.isfile(results_path):
     with open(results_path, 'rb') as f:

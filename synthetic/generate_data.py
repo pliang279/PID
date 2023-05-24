@@ -21,7 +21,7 @@ parser.add_argument("--transform-dim", default=32, type=int)
 parser.add_argument('--setting', default='redundancy', type=str)
 parser.add_argument('--mix-ratio', nargs='+', default=None, type=float)
 parser.add_argument('--num-classes', default=32, type=int)
-parser.add_argument('--out-path', default='/usr0/home/yuncheng/MultiBench/synthetic', type=str)
+parser.add_argument('--out-path', default='MultiBench/synthetic', type=str)
 args = parser.parse_args()
 
 

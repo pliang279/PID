@@ -16,8 +16,9 @@ import argparse
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 cos = torch.nn.CosineSimilarity()
 
+
 parser = argparse.ArgumentParser()
-parser.add_argument("--data-path", default="/home/yuncheng/MultiBench/synthetic/SIMPLE_DATA_DIM=3_STD=0.5.pickle", type=str, help="input path of synthetic dataset")
+parser.add_argument("--data-path", default="SIMPLE_DATA_DIM=3_STD=0.5.pickle", type=str, help="input path of synthetic dataset")
 parser.add_argument("--keys", nargs='+', default=['a','b','c','d','e','label'], type=str, help="keys to access data of each modality and label, assuming dataset is structured as a dict")
 parser.add_argument("--modalities", nargs='+', default=[0,1], type=int, help="specify the index of modalities in keys")
 parser.add_argument("--bs", default=128, type=int)
@@ -56,8 +57,8 @@ else:
     input_dims = args.input_dim
 encoders = [Linear(input_dim, args.output_dim).to(device) for input_dim in input_dims]
 heads = [MLP(args.output_dim, args.hidden_dim, args.num_classes, dropout=False).to(device) for _ in args.modalities]
-# encoders = [torch.load(f'/usr0/home/yuncheng/MultiBench/synthetic/model_selection/{args.setting}/{args.setting}_unimodal{i}_encoder.pt') for i in args.modalities]
-# heads = [torch.load(f'/usr0/home/yuncheng/MultiBench/synthetic/model_selection/{args.setting}/{args.setting}_unimodal{i}_head.pt') for i in args.modalities]
+# encoders = [torch.load(f'synthetic/model_selection/{args.setting}/{args.setting}_unimodal{i}_encoder.pt') for i in args.modalities]
+# heads = [torch.load(f'synthetic/model_selection/{args.setting}/{args.setting}_unimodal{i}_head.pt') for i in args.modalities]
 ensemble = AdditiveEnsemble().to(device)
 objective = EncourageAlignment()
 

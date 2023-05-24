@@ -1,5 +1,5 @@
 
-# DATA=/usr0/home/yuncheng/MultiBench/synthetic/DATA_uniqueness0.pickle
+# DATA=synthetic/DATA_uniqueness0.pickle
 
 # python synthetic/early_fusion.py --data-path ${DATA} --keys 0 1 label --input-dim 200 --hidden-dim 512 --num-classes 2 --saved-model /home/yuncheng/uniqueness0_early_fusion_best.pt --modalities 1 1 > synthetic/uniqueness0_early_fusion.txt
 # python synthetic/late_fusion.py --data-path ${DATA} --keys 0 1 label --input-dim 200 --output-dim 512 --hidden-dim 512 --num-classes 2 --saved-model /home/yuncheng/uniqueness0_late_fusion_best.pt --modalities 1 1 > synthetic/uniqueness0_late_fusion.txt
@@ -10,7 +10,7 @@
 # python synthetic/mctn.py --data-path ${DATA} --keys 0 1 label --input-dim 200 --hidden-dim 512 --num-classes 2 --saved-model /home/yuncheng/uniqueness0_mctn_best.pt --modalities 1 1 > synthetic/uniqueness0_mctn.txt
 
 
-DATA=/usr0/home/yuncheng/MultiBench/synthetic/DATA_uniqueness1.pickle
+DATA=synthetic/DATA_uniqueness1.pickle
 
 python synthetic/early_fusion.py --data-path ${DATA} --keys 0 1 label --input-dim 200 --hidden-dim 512 --num-classes 2 --saved-model /home/yuncheng/uniqueness1_early_fusion_best.pt --modalities 1 1 > synthetic/uniqueness1_early_fusion.txt
 # python synthetic/late_fusion.py --data-path ${DATA} --keys 0 1 label --input-dim 200 --output-dim 512 --hidden-dim 512 --num-classes 2 --saved-model /home/yuncheng/uniqueness1_late_fusion_best.pt --modalities 1 1 > synthetic/uniqueness1_late_fusion.txt
