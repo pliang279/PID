@@ -17,7 +17,7 @@ from datasets.affect.get_data import get_dataloader # noqa
 # mosi_raw.pkl, mosei_raw.pkl, sarcasm.pkl, humor.pkl
 # raw_path: mosi.hdf5, mosei.hdf5, sarcasm_raw_text.pkl, humor_raw_text.pkl
 traindata, validdata, testdata = \
-    get_dataloader('/usr0/home/yuncheng/MultiBench/data/mosi_raw.pkl', robust_test=False)
+    get_dataloader('/home/paul/MultiBench/mosi_raw.pkl', robust_test=False)
 
 max_seq = 20
 feature_dim = 300

@@ -3,6 +3,7 @@ import sys
 import os
 sys.path.append(os.getcwd())
 sys.path.append(os.path.dirname(os.path.dirname(os.getcwd())))
+os.environ['CUDA_VISIBLE_DEVICES'] = '1'
 
 from unimodals.common_models import GRU, MLP, Sequential, Identity  # noqa
 from training_structures.unimodal import train, test  # noqa
@@ -13,12 +14,12 @@ from fusions.common_fusions import ConcatEarly  # noqa
 # mosi_raw.pkl, mosei_raw.pkl, sarcasm.pkl, humor.pkl
 # traindata, validdata, testdata = get_dataloader('/home/pliang/multibench/affect/pack/mosi/mosi_raw.pkl', robust_test=False)
 traindata, validdata, testdata = get_dataloader(
-    '/usr0/home/yuncheng/MultiBench/data/mosi_raw.pkl', robust_test=False, max_pad=True, data_type='mosi', max_seq_len=50)
+    '/home/pliang/multibench/affect/pack/mosi/mosi_raw.pkl', robust_test=False, max_pad=True, data_type='mosi', max_seq_len=50)
 
-modality_num = 0
+modality_num = 2
 
 # mosi/mosei
-encoder = GRU(35, 600, dropout=True, has_padding=False,
+encoder = GRU(300, 600, dropout=True, has_padding=False,
               batch_first=True, last_only=True).cuda()
 head = MLP(600, 512, 1).cuda()
 

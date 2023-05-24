@@ -16,19 +16,19 @@ from fusions.common_fusions import Concat, TensorFusion  # noqa
 # mosi_raw.pkl, mosei_raw.pkl, sarcasm.pkl, humor.pkl
 # raw_path: mosi.hdf5, mosei.hdf5, sarcasm_raw_text.pkl, humor_raw_text.pkl
 traindata, validdata, test_robust = get_dataloader(
-    '/usr0/home/yuncheng/MultiBench/data/humor.pkl', robust_test=False)
+    '/home/paul/MultiBench/mosi_raw.pkl', robust_test=False)
 
-# # mosi/mosei
-# encoders = [GRUWithLinear(35, 64, 4, dropout=True, has_padding=True).cuda(),
-#             GRUWithLinear(74, 128, 19, dropout=True, has_padding=True).cuda(),
-#             GRUWithLinear(300, 512, 79, dropout=True, has_padding=True).cuda()]
-# head = MLP(8000, 512, 1).cuda()
+# mosi/mosei
+encoders = [GRUWithLinear(35, 64, 4, dropout=True, has_padding=True).cuda(),
+            GRUWithLinear(74, 128, 19, dropout=True, has_padding=True).cuda(),
+            GRUWithLinear(300, 512, 79, dropout=True, has_padding=True).cuda()]
+head = MLP(8000, 512, 1).cuda()
 
 # humor/sarcasm
-encoders=[GRUWithLinear(371,512,4,dropout=True,has_padding=True).cuda(), \
-    GRUWithLinear(81,256,19,dropout=True,has_padding=True).cuda(),\
-    GRUWithLinear(300,600,79,dropout=True,has_padding=True).cuda()]
-head=MLP(8000,512,1).cuda()
+# encoders=[GRUWithLinear(371,512,4,dropout=True,has_padding=True).cuda(), \
+#     GRUWithLinear(81,256,19,dropout=True,has_padding=True).cuda(),\
+#     GRUWithLinear(300,600,79,dropout=True,has_padding=True).cuda()]
+# head=MLP(8000,512,1).cuda()
 
 fusion = TensorFusion().cuda()
 
