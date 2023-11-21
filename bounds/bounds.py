@@ -32,7 +32,7 @@ def solve_Q(P: np.ndarray):
         for y in range(P.shape[2]):
             vars = []
             for x2 in range(P.shape[1]):
-            vars.append(Q[y][x1, x2])
+                vars.append(Q[y][x1, x2])
             A_cstrs.append(cp.sum(vars) == Px1y[x1,y])
   
     # Adding [B] constraints
@@ -41,7 +41,7 @@ def solve_Q(P: np.ndarray):
         for y in range(P.shape[2]):
             vars = []
             for x1 in range(P.shape[0]):
-            vars.append(Q[y][x1, x2])
+                vars.append(Q[y][x1, x2])
             B_cstrs.append(cp.sum(vars) == Px2y[x2,y])
 
     # KL divergence
@@ -232,14 +232,14 @@ def upper_bound(P, all_p):
     return max_MI - all_p['R'] - all_p['U1'] - all_p['U2']
 
 def solve_Q_other(P):
-  # P is (x1 x2 y), constraints (x1y) (x2y), objective H(y|x1x2)
-  # P1 is (x2 y x1), constraints (x2x1)(yx1), objective H(x1|x2y)
-  P1 = np.swapaxes(np.swapaxes(P,1,2), 0, 2)
-  # P2 is (x1 y x2), constraints (x1x2)(yx2), objective H(x2|x1y)
-  P2 = np.swapaxes(P,1,2)
-  Q1 = solve_Q(P1) # Q1 is in (x2 y x1) space
-  Q2 = solve_Q(P2) # Q2 is in (x1 y x2) space
-  return Q1, Q2
+    # P is (x1 x2 y), constraints (x1y) (x2y), objective H(y|x1x2)
+    # P1 is (x2 y x1), constraints (x2x1)(yx1), objective H(x1|x2y)
+    P1 = np.swapaxes(np.swapaxes(P,1,2), 0, 2)
+    # P2 is (x1 y x2), constraints (x1x2)(yx2), objective H(x2|x1y)
+    P2 = np.swapaxes(P,1,2)
+    Q1 = solve_Q(P1) # Q1 is in (x2 y x1) space
+    Q2 = solve_Q(P2) # Q2 is in (x1 y x2) space
+    return Q1, Q2
 
 def get_bounds(P):
     r, u1, u2, s = test(P)
