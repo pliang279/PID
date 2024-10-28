@@ -167,7 +167,7 @@ class MLP(torch.nn.Module):
             output = self.dropout_layer(output)
         output2 = self.fc2(output)
         if self.dropout:
-            output2 = self.dropout_layer(output)
+            output2 = self.dropout_layer(output2)
         if self.output_each_layer:
             return [0, x, output, self.lklu(output2)]
         return output2

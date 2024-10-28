@@ -94,10 +94,10 @@ class SyntheticDataset(Dataset):
     def __getitem__(self, index):
         tmp = []
         for i, modality in enumerate(self.modalities):
-            if modality:
-                tmp.append(torch.tensor(self.data[self.keys[i]][index]))
+            if self.keys[i] not in self.data.keys(): 
+                raise NotImplementedError
             else:
-                tmp.append(torch.ones(self.data[self.keys[i]][index].size))
+                tmp.append(torch.tensor(self.data[self.keys[i]][index]))
         tmp.append(torch.tensor(self.data[self.keys[-1]][index]))
         return tmp
 
