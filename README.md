@@ -2,6 +2,10 @@
 
 This repository contains the code for the following papers on quantifying and modeling multimodal interactions
 
+[**Multimodal Learning Without Labeled Multimodal Data: Guarantees and Applications**](https://arxiv.org/abs/2306.04539)<br>
+Paul Pu Liang, Chun Kai Ling, Yun Cheng, Alex Obolenskiy, Yudong Liu, Rohan Pandey, Alex Wilf, Louis-Philippe Morency, Ruslan Salakhutdinov<br>
+ICLR 2024.
+
 [**Quantifying & Modeling Multimodal Interactions: An Information Decomposition Framework**](https://arxiv.org/abs/2302.12247)<br>
 Paul Pu Liang, Yun Cheng, Xiang Fan, Chun Kai Ling, Suzanne Nie, Richard Chen, Zihao Deng, Nicholas Allen, Randy Auerbach, Faisal Mahmood, Ruslan Salakhutdinov, Louis-Philippe Morency<br>
 NeurIPS 2023.
@@ -11,6 +15,13 @@ Paul Pu Liang, Yun Cheng, Ruslan Salakhutdinov, Louis-Philippe Morency<br>
 ICMI 2023.
 
 If you find this repository useful, please cite the relevant works:
+```
+@inproceedings{liangmultimodal,
+  title={Multimodal Learning Without Labeled Multimodal Data: Guarantees and Applications},
+  author={Liang, Paul Pu and Ling, Chun Kai and Cheng, Yun and Obolenskiy, Alexander and Liu, Yudong and Pandey, Rohan and Wilf, Alex and Morency, Louis-Philippe and Salakhutdinov, Russ},
+  booktitle={The Twelfth International Conference on Learning Representations}
+}
+```
 ```
 @inproceedings{liang2023quantifying,
   title={Quantifying \& Modeling Multimodal Interactions: An Information Decomposition Framework},
